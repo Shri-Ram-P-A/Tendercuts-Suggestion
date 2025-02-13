@@ -6,13 +6,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from dotenv import load_dotenv
 import re
 
-load_dotenv()
-
-GROQCHAT_API_KEY = os.getenv('GROQCHAT_API_KEY')
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+GROQCHAT_API_KEY = "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"
+GEMINI_API_KEY = "AIzaSyA3I3JhnKntMwUZEWTW7f5nvH2iBx_rjWM"
 
 if not GROQCHAT_API_KEY or not GEMINI_API_KEY:
     st.error("Server error: Missing API keys")
@@ -67,7 +64,7 @@ if "displayed" not in st.session_state:
 
 
 def clean_response(text):
-    text = re.sub(r'\b(None|image|URL|website)\b', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\b(None|image|URL)\b', '', text, flags=re.IGNORECASE)
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
