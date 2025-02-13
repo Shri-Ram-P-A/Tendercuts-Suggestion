@@ -68,7 +68,7 @@ if "displayed" not in st.session_state:
 
 def clean_response(text):
     text = re.sub(r'\b(None|image|URL|website)\b', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'\s+', ' ', text).strip()  # Remove extra spaces
+    text = re.sub(r'\s+', ' ', text).strip()
     return text
 
 
@@ -111,7 +111,7 @@ if user_query:
         st.markdown(user_query)
 
     response = retrieval_chain.invoke({'input': user_query})
-    bot_response = clean_response(response['answer'])  # Clean response before displaying
+    bot_response = clean_response(response['answer'])
 
     st.session_state.messages.append({"role": "assistant", "content": bot_response})
 
