@@ -1,0 +1,9 @@
+streamlit
+langchain
+langchain_groq
+langchain_core
+langchain_google_genai
+langchain_community
+faiss-cpu
+google-generativeai
+python-dotenv
