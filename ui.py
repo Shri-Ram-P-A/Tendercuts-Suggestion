@@ -79,7 +79,7 @@ def display_response_with_images(response_text):
 
     for part in content_parts:
         if isinstance(part, str) and re.match(image_pattern, part):
-            st.image(part, caption="Product Image", use_column_width=True)
+            st.image(part, caption="Product Image", use_container_width=True)
         elif isinstance(part, str) and re.match(link_pattern, part):
             st.markdown(f"[Click Here]({part})", unsafe_allow_html=True)
         else:
